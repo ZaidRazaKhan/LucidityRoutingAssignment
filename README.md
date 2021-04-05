@@ -4,7 +4,7 @@ A system to find the optimal route for a delivery boy to deliever exactly 2 orde
 # Problem Statement: 
 Imagine a delivery executive called Aman standing idle in Koramangala somewhere when suddenly his phone rings and notifies that he’s just been assigned a batch of 2 orders meant to be delivered in the shortest possible timeframe.
 
-![Alt text](images/graph.jpg?raw=true "Graph")
+![Alt text](images/graph.png?raw=true "Graph")
 
 All the circles in the figure above represent geo-locations :
 * C1 : Consumer 1
