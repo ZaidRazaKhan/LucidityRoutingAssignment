@@ -1,6 +1,8 @@
 package com.lucidity.route.plan;
 
-public interface DistanceCalculator<T extends Location>{
+import org.jetbrains.annotations.NotNull;
 
-    Double calculate(T from, T to);
+public interface DistanceCalculator<T extends Location>{
+    @NotNull
+    Double calculate(final T from, final T to);
 }

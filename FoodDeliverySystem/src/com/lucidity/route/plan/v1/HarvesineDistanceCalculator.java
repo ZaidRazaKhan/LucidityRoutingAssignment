@@ -1,16 +1,19 @@
 package com.lucidity.route.plan.v1;
 
 import com.lucidity.route.plan.DistanceCalculator;
+import org.jetbrains.annotations.NotNull;
 
 public class HarvesineDistanceCalculator implements DistanceCalculator<GeoLocation> {
     private static final int R = 6371;
 
     @Override
-    public Double calculate(GeoLocation from, GeoLocation to) {
+    @NotNull
+    public Double calculate(final GeoLocation from, final GeoLocation to) {
         return getHarvesianDistance(from, to);
     }
 
-    private Double getHarvesianDistance(final GeoLocation from, final GeoLocation to) {
+    private @NotNull
+    Double getHarvesianDistance(final GeoLocation from, final GeoLocation to) {
         Double lat2 = to.getLatitude();
         Double lat1 = from.getLatitude();
         Double lon1 = from.getLongitude();

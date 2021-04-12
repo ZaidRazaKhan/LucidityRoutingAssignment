@@ -1,7 +1,12 @@
 import com.lucidity.route.plan.DistanceCalculator;
 import com.lucidity.route.plan.RouteFinder;
 import com.lucidity.route.plan.TimeCalculator;
-import com.lucidity.route.plan.v1.*;
+import com.lucidity.route.plan.v1.GeoLocation;
+import com.lucidity.route.plan.v1.HarvesineDistanceCalculator;
+import com.lucidity.route.plan.v1.OrderImpl;
+import com.lucidity.route.plan.v1.RouteFinderImpl;
+import com.lucidity.route.plan.v1.RouteNodeImpl;
+import com.lucidity.route.plan.v1.TimeCalculatorImpl;
 
 import java.util.ArrayList;
 import java.util.List;

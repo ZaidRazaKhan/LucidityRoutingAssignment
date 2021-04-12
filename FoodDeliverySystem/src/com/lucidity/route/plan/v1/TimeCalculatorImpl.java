@@ -2,6 +2,7 @@ package com.lucidity.route.plan.v1;
 
 import com.lucidity.route.plan.DistanceCalculator;
 import com.lucidity.route.plan.TimeCalculator;
+import org.jetbrains.annotations.NotNull;
 
 public class TimeCalculatorImpl implements TimeCalculator<GeoLocation> {
 
@@ -16,7 +17,8 @@ public class TimeCalculatorImpl implements TimeCalculator<GeoLocation> {
 
 
     @Override
-    public Double estimateTime(GeoLocation from, GeoLocation to) {
+    @NotNull
+    public Double estimateTime(final GeoLocation from, final GeoLocation to) {
         return harvesineDistanceCalculator.calculate(from, to)/averageSpeed;
     }
 

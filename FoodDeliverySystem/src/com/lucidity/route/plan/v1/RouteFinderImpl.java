@@ -2,6 +2,7 @@ package com.lucidity.route.plan.v1;
 
 import com.lucidity.route.plan.RouteFinder;
 import com.lucidity.route.plan.TimeCalculator;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,6 +19,7 @@ import java.util.Objects;
         this.timeCalculator = timeCalculator;
     }
 
+    @NotNull
     private List<RouteNodeImpl> getOptimalRoute(final OrderImpl<GeoLocation> order1,
                                                 final OrderImpl<GeoLocation> order2,
                                                 final GeoLocation deliveryBoyLocation) {
@@ -37,7 +39,7 @@ import java.util.Objects;
         return optimalRoute;
     }
 
-
+    @NotNull
      private List<List<RouteNodeImpl>> getValidRoutes(final OrderImpl<GeoLocation> order1,
                                                       final OrderImpl<GeoLocation> order2,
                                                       final GeoLocation deliveryBoyLocation) {
@@ -64,18 +66,17 @@ import java.util.Objects;
          return routes;
      }
 
-     private void routeHavingRestaurantFirstCustomerLaterInOrder(OrderImpl<GeoLocation> order2,
-                                                                 OrderImpl<GeoLocation> order1,
-                                                                 GeoLocation deliveryBoyLocation,
-                                                                 List<List<RouteNodeImpl>> routes) {
+     private void routeHavingRestaurantFirstCustomerLaterInOrder(final OrderImpl<GeoLocation> order2,
+                                                                 final OrderImpl<GeoLocation> order1,
+                                                                 final GeoLocation deliveryBoyLocation,
+                                                                 final List<List<RouteNodeImpl>> routes) {
          restaurantFirstCustomerLast(order2, order1, deliveryBoyLocation, routes, order1.getDropLocation(),
                  order1.getId(), order2.getDropLocation(), order2.getId());
      }
-
-     private void restaurantFirstCustomerLast(OrderImpl<GeoLocation> order2, OrderImpl<GeoLocation> order1,
-                                              GeoLocation deliveryBoyLocation, List<List<RouteNodeImpl>> routes,
-                                              GeoLocation dropLocation, String id,
-                                              GeoLocation dropLocation2, String id2) {
+    private void restaurantFirstCustomerLast(final OrderImpl<GeoLocation> order2, final OrderImpl<GeoLocation> order1,
+                                              final GeoLocation deliveryBoyLocation, final List<List<RouteNodeImpl>> routes,
+                                              final GeoLocation dropLocation, final String id,
+                                              final GeoLocation dropLocation2, final String id2) {
          final List<RouteNodeImpl> route = new ArrayList<>();
          route.add(new RouteNodeImpl(deliveryBoyLocation, new HashSet<>(), new HashSet<>()));
          route.add(new RouteNodeImpl(order1.getPickupLocation(),
@@ -88,8 +89,7 @@ import java.util.Objects;
                  new HashSet<>(), new HashSet<>(Collections.singletonList(id2))));
          routes.add(route);
      }
-
-     private void routeHavingRestaurantFirstCustomerLaterOppositeOrder(final OrderImpl<GeoLocation> order1,
+    private void routeHavingRestaurantFirstCustomerLaterOppositeOrder(final OrderImpl<GeoLocation> order1,
                                                                        final OrderImpl<GeoLocation> order2,
                                                                        final GeoLocation deliveryBoyLocation,
                                                                        final List<List<RouteNodeImpl>> routes) {
@@ -125,6 +125,7 @@ import java.util.Objects;
 
     }
     @Override
+    @NotNull
     public List<RouteNodeImpl> find(final List<GeoLocation> startLocation, final List<OrderImpl<GeoLocation>> orders) {
         if(Objects.isNull(startLocation) || startLocation.size() != 1)
             throw new IllegalArgumentException("This implementation requires only one starting location");
